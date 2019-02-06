@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new item</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+<div style="width:300px; margin:auto; margin-top:50px;">
+    <form action="/addItemRequest" method="post">
+        <div hidden class="form-group">
+            <label for="itemId">id</label>
+            <input type="number" name="itemId" class="form-control" id="itemId" th:value="${item.id}">
+        </div>
+        <div hidden class="form-group">
+            <label for="userId">userid</label>
+            <input type="number" name="userId" class="form-control" id="userId" th:value="${item.userId}">
+        </div>
+        <div class="form-group">
+            <label for="category">please select a category</label>
+            <select class="form-control" id="category" name="category" th:value="${item.category}">
+                <option>Toys</option>
+                <option>Books</option>
+                <option>Clothes</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="shortdescription">Short description</label>
+            <input type="text" maxlength="250" name="shortdescription" class="form-control" id="shortdescription" placeholder="write a short description" th:value="${item.shortdescription}">
+        </div>
+        <div class="form-group">
+            <label for="price">PRICE</label>
+            <input type="number" required min="0" name="price" class="form-control" id="price" placeholder="requested price" th:value="${item.price}">
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" required min="1" name="quantity" class="form-control" id="quantity" placeholder="number of items" th:value="${item.quantity}">
+        </div>
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+        <br>
+        <button type="reset" class="btn btn-primary">RESET Data</button>
+    </form>
+</div>
+</body>
+</html>

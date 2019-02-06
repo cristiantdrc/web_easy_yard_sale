@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="buy">
+        <input hidden type="text" name="itemId" th:value="${itemId}">
+        <!--<input hidden type="text" name="quantityInStock" th:value="${quantityInStock}">-->
+        Alege cantiatea dorita:
+        <!--max="th:value="${quantityInStock}"-->
+        <input min="1" type="number" name="soldedQuantity">
+        <button type="submit">CUMPARA!</button>
+        <button type="reset" class="btn btn-primary">RESET Data</button>
+        <button class="btn btn-primary"> <a href="/shop">Inapoi la magazin</a> </button>
+
+    </form>
+</body>
+</html>

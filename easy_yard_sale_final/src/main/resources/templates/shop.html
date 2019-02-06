@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style>
+body  {
+    background-image: url("http://www.hd-freewallpapers.com/3d-wallpapers/best-hd-wallpaper-mobile-3D.jpg");
+}
+</style>
+</head>
+    <body>
+
+        <div style="width:80%; margin:auto; margin-top:20px">
+            <h2 style="color:red;text-align:center">Alege produsul dorit</h2>
+            <div class="card" style="width: 18rem; float:left; margin-left:20px;" th:each="i: ${items}">
+                <img class="card-img-top" src="http://crusadeforartbk.org/wp-content/uploads/2018/05/community-garage-sales-near-me-garage-sale-sign-ideas-rummage-sale-signs-best-yard-sale-signs-ideas-on-yard-sales-near-community-garage-sales-mesa.jpg" >
+                <div class="card-body">
+                    <label for="category">Categoria</label>
+                    <h5 class="card-title" th:text="${i.category}" id="category"></h5>
+                    <label for="category">photo</label>
+                    <p class="card-text" th:text="${i.photo}" id="photo"></p>
+                    <label for="price">Pret/bucata</label>
+                    <p class="card-text" th:text="${i.price}" id="price"></p>
+                    <label for="quantity">Cantitate disponibila</label>
+                    <p class="card-text" th:text="${i.quantity}" id="quantity"></p>
+                    <label for="shtd">Descriere produs</label>
+                    <p class="card-text" th:text="${i.shortdescription}" id="shtd"></p>
+                    <label for="sellerId">sellerId</label>
+                    <p class="card-text" th:text="${i.userId}" id="sellerId">sellerId</p>
+                    <a th:href="@{'/wanttobuy?itemId=' + ${i.id}}" class="btn btn-primary">Cumpara</a>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

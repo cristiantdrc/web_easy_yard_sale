@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>AdminPage_all_users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>emailAddress</th>
+                <th>username</th>
+                <th>password</th>
+                <th>type</th>
+                <th>ACTIONS</th>
+            </tr>
+            <tr th:each="u: ${users}">
+                <td th:text="${u.id}">ID</td>
+                <td th:text="${u.firstName}"></td>
+                <td th:text="${u.lastName}"></td>
+                <td th:text="${u.emailAddress}"></td>
+                <td th:text="${u.username}"></td>
+                <td th:password="${u.password}"></td>
+                <td th:text="${u.type}"></td>
+                <td>
+                    <button type="button" class="btn btn-warning"><a th:href="@{/deleteUser(id=${u.id})}">DELETE USER</a></button>
+                    <button type="button" class="btn btn-warning"><a th:href="@{/adminUserView(id=${u.id})}">EDIT USER</a></button>
+                </td>
+            </tr>
+        </table> <br>
+        <button > <a href="/adminUserView">ADAUGA USER NOU</a> </button>
+    </div>
+</body>
+</html>
